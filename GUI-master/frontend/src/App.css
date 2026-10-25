@@ -2896,6 +2896,10 @@ a:focus-visible,
   font-size: 11px;
 }
 
+.mission-link-status strong.is-disconnected {
+  color: var(--accent-red);
+}
+
 .mission-identity {
   justify-content: center;
   gap: 10px;
@@ -3511,5 +3515,465 @@ a:focus-visible,
     width: auto;
     min-width: 0;
     margin-left: 0;
+  }
+}
+
+:root {
+  --accent-cyan: #ff8a32;
+  --accent-green: #52d29a;
+  --accent-red: #ff6e59;
+  --accent-amber: #ffb15e;
+  --text-primary: #f6eee7;
+  --text-secondary: #c3b2a5;
+  --text-muted: #927f70;
+}
+
+html,
+body {
+  background: #0c0907;
+  color: var(--text-primary);
+}
+
+body {
+  background:
+    radial-gradient(ellipse at 74% 5%, rgba(116, 54, 19, 0.16), transparent 38%),
+    #0c0907;
+}
+
+.app-shell,
+.content-wrap {
+  background: transparent;
+}
+
+.sidebar {
+  background: linear-gradient(180deg, #18110d 0%, #110c09 100%);
+  border-right: 1px solid #302219;
+}
+
+.sidebar-head {
+  border-bottom-color: #302219;
+}
+
+.sidebar-head .sidebar-brand {
+  border-color: #a84e1e;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #ff9b42, #e85f19);
+  box-shadow: 0 6px 20px rgba(238, 104, 30, 0.2);
+}
+
+.sidebar-logo {
+  color: #fff5e9;
+}
+
+.nav-list {
+  gap: 9px;
+  padding: 26px 10px;
+}
+
+.nav-item,
+.nav-item:hover,
+.nav-item.active {
+  min-height: 48px;
+  border: 0;
+  border-radius: 14px;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  background: linear-gradient(135deg, #f37a28, #d95517);
+  color: #fffaf5;
+  box-shadow: 0 7px 20px rgba(218, 83, 22, 0.2);
+}
+
+.nav-item:hover .nav-icon,
+.nav-item.active .nav-icon {
+  color: #fffaf5;
+}
+
+.sidebar-footer {
+  color: #766457;
+}
+
+.top-strip,
+.content-wrap > .top-strip {
+  border-bottom: 1px solid rgba(77, 52, 36, 0.68);
+  background: rgba(18, 12, 9, 0.86);
+  backdrop-filter: blur(18px);
+}
+
+.mission-link-status {
+  color: var(--text-muted);
+}
+
+.mission-link-status strong {
+  color: var(--accent-green);
+}
+
+.mission-identity > svg {
+  color: #ff9949;
+}
+
+.mission-identity > strong {
+  color: #f7eee7;
+}
+
+.mission-readouts {
+  color: #c2ad9c;
+}
+
+.mission-readouts span {
+  padding: 8px 12px;
+  border: 1px solid #39271b;
+  border-radius: 999px;
+  background: rgba(37, 24, 16, 0.72);
+}
+
+.mission-readout strong,
+.mission-readout strong small {
+  color: #f4a05d;
+}
+
+.sidebar-toggle {
+  border-color: #4b3021;
+  border-radius: 0 10px 10px 0;
+  background: #1d130d;
+  color: #e3c7b1;
+}
+
+.sidebar-toggle:hover {
+  border-color: #f18135;
+  color: #ff9b50;
+}
+
+.dashboard-page {
+  gap: 14px;
+  padding: 18px;
+}
+
+.dashboard-main-grid {
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.35fr) minmax(250px, 0.92fr);
+  grid-template-rows: minmax(0, 1.08fr) minmax(0, 0.72fr);
+  gap: 14px;
+  min-height: 0;
+}
+
+.dashboard-panel,
+.dashboard-imu-card,
+.sensor-card,
+.card,
+.gyro-satellite-card,
+.gyro-chart-card,
+.route-banner {
+  border: 1px solid rgba(103, 67, 43, 0.44);
+  border-radius: 18px;
+  background: linear-gradient(145deg, rgba( thirty, 20, 14, 0.96), rgba(21, 14, 10, 0.98));
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.24);
+}
+
+.dashboard-panel {
+  padding: 16px;
+}
+
+.dashboard-panel:hover,
+.dashboard-imu-card:hover,
+.sensor-card:hover,
+.card:hover,
+.gyro-satellite-card:hover,
+.gyro-chart-card:hover {
+  border-color: rgba(237, 126, 55, 0.52);
+}
+
+.panel-eyebrow,
+.dashboard-panel > h3,
+.dashboard-chart-card h3,
+.dashboard-recovery-box h3,
+.dashboard-chart-header h3,
+.dashboard-imu-card h3,
+.sensor-card h3,
+.gyro-satellite-card > h3,
+.gyro-chart-card h3,
+.card h2,
+.card h3 {
+  color: #b9a393;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+
+.dashboard-chart-header span,
+.dashboard-chart-readout,
+.sensor-readout {
+  color: #ff9a4b;
+}
+
+.dashboard-chart-card .realtime-chart,
+.realtime-chart {
+  border: 1px solid rgba(95, 63, 42, 0.34);
+  border-radius: 12px;
+  background: rgba(13, 9, 7, 0.56);
+}
+
+.dashboard-sensor-panel,
+.dashboard-altitude-panel {
+  gap: 12px;
+  padding: 14px;
+}
+
+.dashboard-sensor-panel .dashboard-chart-card,
+.dashboard-altitude-panel .dashboard-chart-card {
+  border: 1px solid rgba(95, 63, 42, 0.36);
+  border-radius: 14px;
+  background: rgba(18, 12, 9, 0.62);
+}
+
+.dashboard-satellite-panel .satellite-3d {
+  border: 1px solid rgba(110, 70, 42, 0.4);
+  border-radius: 14px;
+  background: radial-gradient(ellipse at center, #21150e, #0d0907 75%);
+}
+
+.dashboard-orientation {
+  border-top-color: #39271b;
+}
+
+.orientation-readout strong {
+  color: #ffc27f;
+}
+
+.motion-status,
+.dashboard-orientation .motion-tumbling {
+  border-color: rgba(255, 166, 83, 0.35);
+  border-radius: 999px;
+  background: rgba(87, 46, 19, 0.35);
+  color: #ffb46c;
+}
+
+.recovery-status {
+  border-color: rgba(103, 67, 43, 0.44);
+  border-radius: 12px;
+  background: rgba(28, 19, 13, 0.82);
+}
+
+.recovery-status.is-deployed {
+  border-color: rgba(82, 210, 154, 0.35);
+  border-radius: 12px;
+  background: rgba(20, 48, 35, 0.6);
+}
+
+.dashboard-power-panel .telemetry-tile,
+.dashboard-status-grid .telemetry-tile {
+  border-color: rgba(103, 67, 43, 0.38);
+  border-radius: 12px;
+  background: rgba(18, 12, 9, 0.72);
+}
+
+.telemetry-tile-label,
+.telemetry-tile-label svg {
+  color: #a58f7e;
+}
+
+.telemetry-tile strong,
+.dashboard-status-grid .telemetry-tile strong {
+  color: #ffad67;
+}
+
+.dashboard-status-grid .telemetry-tile strong {
+  -webkit-text-fill-color: #ffad67;
+}
+
+.dashboard-map-widget .gps-map {
+  border: 1px solid rgba(103, 67, 43, 0.44);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.dashboard-imu-row {
+  flex: 0 0 146px;
+  height: 146px;
+  gap: 14px;
+}
+
+.dashboard-imu-card {
+  padding: 13px 15px;
+}
+
+.dashboard-imu-chart {
+  height: calc(100% - 24px);
+}
+
+.reference-dashboard > form[aria-label="Uplink command"] {
+  min-height: 68px;
+  align-items: center;
+  border: 1px solid rgba(118, 72, 41, 0.48);
+  border-radius: 16px;
+  background: linear-gradient(105deg, rgba(52, 29, 16, 0.9), rgba(23, 15, 10, 0.94));
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+}
+
+.reference-dashboard > form[aria-label="Uplink command"] input {
+  border-color: #56361f;
+  border-radius: 11px;
+  background: #120c08;
+}
+
+.reference-dashboard > form[aria-label="Uplink command"] button {
+  border-radius: 11px;
+  background: linear-gradient(135deg, #fa8b35, #dd5c1d);
+  box-shadow: 0 6px 16px rgba(218, 83, 22, 0.18);
+}
+
+.reference-dashboard > form[aria-label="Uplink command"] button:hover {
+  background: linear-gradient(135deg, #ffa052, #ed702a);
+}
+
+.reference-dashboard > form[aria-label="Uplink command"] input[aria-invalid="true"] {
+  border-color: #ff6e59;
+}
+
+.reference-dashboard > form[aria-label="Uplink command"] input:not([aria-invalid="true"]):focus {
+  border-color: #ff994b;
+}
+
+.page {
+  gap: 16px;
+  padding: 20px;
+}
+
+.route-banner {
+  min-height: 70px;
+  padding: 16px 20px;
+}
+
+.route-icon {
+  color: #ff994b;
+}
+
+.route-banner h2 {
+  color: #f6eee7;
+}
+
+.sensor-card,
+.comm-grid .card,
+.raw-log,
+.gyro-satellite-card,
+.gyro-chart-card,
+.gps-page-grid .card {
+  border-radius: 18px;
+  background: linear-gradient(145deg, #1e140e, #120d09);
+}
+
+.metric-row {
+  border-bottom-color: #39271b;
+}
+
+.metric-label,
+.metric-value {
+  color: #c3b2a5;
+}
+
+.metric-value,
+.comm-metric {
+  color: #ffad67;
+}
+
+.raw-log pre {
+  border-color: #39271b;
+  border-radius: 12px;
+  background: #100b08;
+  color: #ffc27f;
+}
+
+.gyro-satellite-card .satellite-3d {
+  border-color: #39271b;
+  border-radius: 14px;
+  background: radial-gradient(ellipse at center, #21150e, #0d0907 75%);
+}
+
+.gyro-btn {
+  border-color: #553821;
+  border-radius: 10px;
+  background: #21150e;
+}
+
+.gyro-btn:hover {
+  border-color: #f18135;
+  background: #2c1a10;
+}
+
+button:focus-visible,
+a:focus-visible,
+.nav-item:focus-visible {
+  outline-color: #ff994b;
+}
+
+@media (min-width: 1101px) {
+  .reference-dashboard .dashboard-main-grid {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.35fr) minmax(250px, 0.92fr);
+    grid-template-rows: minmax(0, 1.08fr) minmax(0, 0.72fr);
+  }
+
+  .reference-dashboard .dashboard-imu-row {
+    flex-basis: 146px;
+    height: 146px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .dashboard-page {
+    height: auto;
+    min-height: calc(100vh - 76px);
+    overflow: visible;
+  }
+
+  .dashboard-main-grid {
+    min-height: 0;
+  }
+
+  .reference-dashboard .dashboard-main-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto;
+  }
+
+  .reference-dashboard .dashboard-satellite-panel {
+    min-height: 360px;
+  }
+
+  .reference-dashboard .dashboard-imu-row {
+    flex-basis: 190px;
+    height: 190px;
+  }
+}
+
+@media (max-width: 700px) {
+  .dashboard-page,
+  .page {
+    padding: 12px;
+  }
+
+  .dashboard-main-grid,
+  .reference-dashboard .dashboard-main-grid,
+  .reference-dashboard .dashboard-imu-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .reference-dashboard .dashboard-satellite-panel {
+    min-height: 340px;
+  }
+
+  .reference-dashboard .dashboard-imu-row {
+    height: auto;
+    min-height: 540px;
+  }
+
+  .reference-dashboard .dashboard-imu-card {
+    min-height: 160px;
+  }
+
+  .reference-dashboard > form[aria-label="Uplink command"] {
+    align-items: stretch;
+  }
+
+  .mission-readouts {
+    flex-wrap: wrap;
+    justify-content: flex-start;
   }
 }

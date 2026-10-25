@@ -1,0 +1,220 @@
+046,137.0,138,0.27,1013.25,28.98,7.75,10:26:17,12.965986,80.044975,-1.92,9.73,1.93,29.23,LANDED
+046,138.0,139,0.31,1013.47,28.78,7.74,10:26:18,12.966003,80.045013,2.85,9.64,0.37,40.38,LANDED
+046,139.0,140,0.14,1013.09,28.72,7.73,10:26:19,12.965985,80.044998,-0.14,9.47,0.80,25.01,LANDED
+# packet 141 dropped (link-loss sim)
+046,141.0,142,0.42,1013.26,29.36,7.74,10:26:21,12.965979,80.044998,2.48,10.28,0.83,43.92,LANDED
+046,142.0,143,0.39,1013.07,28.92,7.74,10:26:22,12.966031,80.045006,-1.68,9.54,1.63,41.40,LANDED
+046,143.0,144,0.14,1013.30,28.86,7.73,10:26:23,12.965989,80.045006,2.04,9.38,1.27,59.19,LANDED
+046,144.0,145,0.02,1012.95,28.77,7.72,10:26:24,12.965974,80.044983,-2.21,9.93,0.73,27.20,LANDED
+046,145.0,146,0.48,1012.93,29.18,7.71,10:26:25,12.966018,80.045006,1.66,10.61,0.01,58.90,LANDED
+046,146.0,147,0.18,1013.07,28.87,7.73,10:26:26,12.965992,80.045036,-1.99,8.93,1.66,60.30,LANDED
+046,147.0,148,0.10,1013.29,28.91,7.70,10:26:27,12.966019,80.045006,3.02,9.99,0.34,52.30,LANDED
+046,148.0,149,0.05,1013.54,28.69,7.70,10:26:28,12.966026,80.044968,2.50,10.14,1.14,44.66,LANDED
+046,149.0,150,0.14,1013.33,28.82,7.71,10:26:29,12.965969,80.044991,-1.81,10.13,1.64,37.88,LANDED
+# packet 151 dropped (link-loss sim)
+046,151.0,152,0.47,1013.46,29.22,7.68,10:26:31,12.966015,80.045029,-1.59,10.35,1.31,33.20,LANDED
+046,152.0,153,0.12,1013.13,29.20,7.67,10:26:32,12.966002,80.044975,-1.96,9.08,0.25,36.16,LANDED
+046,153.0,154,0.44,1013.40,29.23,7.70,10:26:33,12.966031,80.044998,2.36,10.45,1.28,40.31,LANDED
+046,154.0,155,0.31,1012.96,28.75,7.68,10:26:34,12.965961,80.044998,1.95,9.20,1.95,42.14,LANDED
+046,155.0,156,0.22,1013.03,28.90,7.69,10:26:35,12.965967,80.045013,-1.49,9.79,0.13,48.70,LANDED
+046,156.0,157,0.42,1013.03,28.67,7.67,10:26:36,12.965993,80.044991,1.33,10.07,0.19,58.32,LANDED
+046,157.0,158,0.38,1013.23,29.05,7.67,10:26:37,12.966009,80.044960,2.74,9.70,0.45,63.68,LANDED
+046,158.0,159,0.27,1013.36,29.34,7.68,10:26:38,12.966006,80.044998,0.77,9.55,0.69,62.85,LANDED
+046,159.0,160,0.25,1013.24,29.29,7.65,10:26:39,12.965973,80.045029,-1.47,10.09,0.05,60.28,LANDED
+046,160.0,161,0.22,1013.48,28.74,7.67,10:26:40,12.965983,80.045029,-1.02,9.67,1.89,49.45,LANDED
+046,161.0,162,0.32,1013.32,29.10,7.64,10:26:41,12.965981,80.044998,-1.43,9.78,1.94,61.30,LANDED
+046,162.0,163,0.19,1013.34,29.33,7.64,10:26:42,12.965993,80.044991,-2.23,9.63,1.47,26.59,LANDED
+046,163.0,164,0.49,1012.90,28.87,7.63,10:26:43,12.966003,80.044983,0.37,9.99,0.02,64.79,LANDED
+046,164.0,165,0.04,1013.16,29.11,7.63,10:26:44,12.966020,80.044998,0.64,9.20,0.32,62.60,LANDED
+046,165.0,166,0.41,1012.92,28.90,7.65,10:26:45,12.966004,80.044991,-2.39,10.91,0.14,54.12,LANDED
+# packet 167 dropped (link-loss sim)
+046,167.0,168,0.46,1013.13,28.80,7.62,10:26:47,12.966019,80.044975,0.48,10.71,1.82,60.87,LANDED
+046,168.0,169,0.42,1013.08,29.30,7.64,10:26:48,12.965966,80.045021,1.13,9.55,0.75,34.41,LANDED
+046,169.0,170,0.12,1013.14,29.01,7.64,10:26:49,12.966002,80.044975,2.30,9.36,1.04,58.01,LANDED
+046,170.0,171,0.36,1013.17,29.20,7.63,10:26:50,12.966038,80.044998,-0.80,10.35,0.05,31.17,LANDED
+046,171.0,172,0.04,1013.33,28.68,7.62,10:26:51,12.965972,80.045013,-2.77,9.18,0.62,42.86,LANDED
+046,172.0,173,0.10,1013.20,28.77,7.61,10:26:52,12.966005,80.044960,-0.60,10.19,1.21,56.70,LANDED
+046,173.0,174,0.31,1013.50,29.02,7.59,10:26:53,12.965962,80.045021,2.76,10.26,0.54,46.48,LANDED
+046,174.0,175,0.45,1013.01,28.68,7.62,10:26:54,12.966031,80.045029,-1.54,9.65,0.99,46.93,LANDED
+046,175.0,176,0.32,1013.02,29.22,7.61,10:26:55,12.966022,80.044975,0.95,9.25,1.88,49.12,LANDED
+046,176.0,177,0.16,1013.13,29.16,7.60,10:26:56,12.965987,80.045036,-2.76,9.72,0.85,57.84,LANDED
+046,177.0,178,0.25,1013.17,29.06,7.59,10:26:57,12.965982,80.044991,-2.66,9.89,0.55,38.73,LANDED
+# packet 179 dropped (link-loss sim)
+# packet 180 dropped (link-loss sim)
+# packet 181 dropped (link-loss sim)
+# packet 182 dropped (link-loss sim)
+046,182.0,183,0.09,1013.48,29.32,7.58,10:27:02,12.965961,80.044975,1.15,8.96,0.46,57.20,LANDED
+046,183.0,184,0.24,1013.38,28.66,7.57,10:27:03,12.965963,80.045036,-0.16,10.31,0.84,30.04,LANDED
+046,184.0,185,0.27,1013.14,29.24,7.54,10:27:04,12.965975,80.044983,0.23,9.68,1.32,39.34,LANDED
+046,185.0,186,0.01,1013.42,29.23,7.56,10:27:05,12.966002,80.044968,2.72,9.63,0.37,29.86,LANDED
+046,186.0,187,0.05,1013.14,29.33,7.55,10:27:06,12.966020,80.044998,-2.53,9.87,1.72,61.38,LANDED
+046,187.0,188,0.10,1012.96,29.27,7.53,10:27:07,12.965973,80.045013,-0.12,9.75,0.41,59.88,LANDED
+046,188.0,189,0.05,1013.06,29.04,7.56,10:27:08,12.966012,80.045036,1.75,9.62,0.24,35.25,LANDED
+046,189.0,190,0.20,1013.28,28.84,7.54,10:27:09,12.966022,80.045036,-0.44,10.27,1.80,30.41,LANDED
+046,190.0,191,0.05,1013.09,29.15,7.53,10:27:10,12.965972,80.044998,1.84,9.48,0.21,56.94,LANDED
+046,191.0,192,0.15,1013.31,29.02,7.52,10:27:11,12.965990,80.044998,-2.81,10.25,0.80,53.67,LANDED
+046,192.0,193,0.25,1013.05,28.71,7.53,10:27:12,12.966039,80.045006,-0.78,9.66,1.06,50.70,LANDED
+046,193.0,194,0.23,1013.41,28.85,7.52,10:27:13,12.965991,80.045036,1.83,9.64,1.08,26.30,LANDED
+046,194.0,195,0.00,1013.52,29.02,7.53,10:27:14,12.965972,80.045006,0.30,9.45,0.31,41.58,LANDED
+046,195.0,196,0.39,1013.06,29.08,7.50,10:27:15,12.965986,80.044975,1.16,10.62,0.73,59.18,LANDED
+046,196.0,197,0.42,1013.18,28.73,7.51,10:27:16,12.965966,80.045021,-1.75,9.55,0.30,50.06,LANDED
+046,197.0,198,0.44,1013.36,28.87,7.52,10:27:17,12.966002,80.045029,1.26,9.78,1.16,56.51,LANDED
+046,198.0,199,0.13,1013.00,28.83,7.51,10:27:18,12.965987,80.044983,0.40,9.62,1.58,48.04,LANDED
+# packet 200 dropped (link-loss sim)
+046,200.0,201,0.20,1013.29,28.69,7.49,10:27:20,12.966015,80.044983,2.67,9.81,0.94,33.56,LANDED
+046,201.0,202,0.09,1013.08,28.71,7.48,10:27:21,12.965978,80.045013,2.62,9.50,1.73,34.82,LANDED
+# packet 203 dropped (link-loss sim)
+# packet 204 dropped (link-loss sim)
+# packet 205 dropped (link-loss sim)
+# packet 206 dropped (link-loss sim)
+# packet 207 dropped (link-loss sim)
+046,207.0,208,0.17,1013.50,28.77,7.47,10:27:27,12.966003,80.044998,2.32,9.33,0.87,52.42,LANDED
+046,208.0,209,0.27,1013.22,29.03,7.47,10:27:28,12.965991,80.045036,-0.40,10.03,0.91,28.83,LANDED
+046,209.0,210,0.47,1013.14,28.67,7.48,10:27:29,12.966016,80.044998,0.92,9.64,1.89,54.85,LANDED
+046,210.0,211,0.34,1012.92,29.07,7.45,10:27:30,12.966032,80.045006,1.70,9.67,1.98,51.38,LANDED
+046,211.0,212,0.06,1013.52,29.06,7.46,10:27:31,12.965982,80.044975,1.05,9.53,1.50,42.26,LANDED
+046,212.0,213,0.15,1013.41,29.28,7.45,10:27:32,12.965978,80.044968,2.60,10.00,0.08,32.35,LANDED
+# packet 214 dropped (link-loss sim)
+# packet 215 dropped (link-loss sim)
+046,215.0,216,0.01,1013.26,28.93,7.45,10:27:35,12.966007,80.044975,-2.65,9.62,0.07,29.28,LANDED
+ACK,046,TX_OFF,OK
+# packet 234 dropped (link-loss sim)
+# packet 235 dropped (link-loss sim)
+# packet 236 dropped (link-loss sim)
+# packet 237 dropped (link-loss sim)
+# packet 239 dropped (link-loss sim)
+# packet 241 dropped (link-loss sim)
+# packet 245 dropped (link-loss sim)
+# packet 247 dropped (link-loss sim)
+# packet 253 dropped (link-loss sim)
+# packet 254 dropped (link-loss sim)
+# packet 264 dropped (link-loss sim)
+# packet 272 dropped (link-loss sim)
+# packet 278 dropped (link-loss sim)
+# packet 284 dropped (link-loss sim)
+# packet 296 dropped (link-loss sim)
+# packet 297 dropped (link-loss sim)
+# packet 298 dropped (link-loss sim)
+# packet 314 dropped (link-loss sim)
+# packet 324 dropped (link-loss sim)
+# packet 325 dropped (link-loss sim)
+# packet 330 dropped (link-loss sim)
+# packet 331 dropped (link-loss sim)
+# packet 332 dropped (link-loss sim)
+# packet 333 dropped (link-loss sim)
+# packet 334 dropped (link-loss sim)
+# packet 336 dropped (link-loss sim)
+# packet 346 dropped (link-loss sim)
+# packet 347 dropped (link-loss sim)
+# packet 348 dropped (link-loss sim)
+# packet 349 dropped (link-loss sim)
+# packet 350 dropped (link-loss sim)
+# packet 351 dropped (link-loss sim)
+# packet 352 dropped (link-loss sim)
+# packet 373 dropped (link-loss sim)
+# packet 378 dropped (link-loss sim)
+# packet 382 dropped (link-loss sim)
+# packet 395 dropped (link-loss sim)
+# packet 396 dropped (link-loss sim)
+# packet 397 dropped (link-loss sim)
+# packet 400 dropped (link-loss sim)
+# packet 401 dropped (link-loss sim)
+# packet 402 dropped (link-loss sim)
+# packet 403 dropped (link-loss sim)
+# packet 404 dropped (link-loss sim)
+# packet 412 dropped (link-loss sim)
+# packet 413 dropped (link-loss sim)
+# packet 422 dropped (link-loss sim)
+# packet 423 dropped (link-loss sim)
+# packet 424 dropped (link-loss sim)
+# packet 425 dropped (link-loss sim)
+# packet 426 dropped (link-loss sim)
+# packet 429 dropped (link-loss sim)
+# packet 453 dropped (link-loss sim)
+# packet 454 dropped (link-loss sim)
+# packet 461 dropped (link-loss sim)
+# packet 462 dropped (link-loss sim)
+# packet 463 dropped (link-loss sim)
+# packet 465 dropped (link-loss sim)
+# packet 486 dropped (link-loss sim)
+# packet 490 dropped (link-loss sim)
+# packet 491 dropped (link-loss sim)
+# packet 501 dropped (link-loss sim)
+# packet 502 dropped (link-loss sim)
+# packet 503 dropped (link-loss sim)
+# packet 504 dropped (link-loss sim)
+# packet 510 dropped (link-loss sim)
+# packet 518 dropped (link-loss sim)
+# packet 519 dropped (link-loss sim)
+# packet 520 dropped (link-loss sim)
+# packet 534 dropped (link-loss sim)
+# packet 535 dropped (link-loss sim)
+# packet 537 dropped (link-loss sim)
+# packet 538 dropped (link-loss sim)
+# packet 539 dropped (link-loss sim)
+# packet 540 dropped (link-loss sim)
+# packet 545 dropped (link-loss sim)
+# packet 546 dropped (link-loss sim)
+# packet 547 dropped (link-loss sim)
+# packet 550 dropped (link-loss sim)
+# packet 551 dropped (link-loss sim)
+# packet 552 dropped (link-loss sim)
+# packet 553 dropped (link-loss sim)
+# packet 559 dropped (link-loss sim)
+# packet 578 dropped (link-loss sim)
+# packet 579 dropped (link-loss sim)
+# packet 587 dropped (link-loss sim)
+# packet 588 dropped (link-loss sim)
+# packet 589 dropped (link-loss sim)
+# packet 590 dropped (link-loss sim)
+# packet 596 dropped (link-loss sim)
+# packet 608 dropped (link-loss sim)
+# packet 618 dropped (link-loss sim)
+# packet 619 dropped (link-loss sim)
+# packet 627 dropped (link-loss sim)
+# packet 640 dropped (link-loss sim)
+# packet 644 dropped (link-loss sim)
+# packet 646 dropped (link-loss sim)
+# packet 648 dropped (link-loss sim)
+# packet 652 dropped (link-loss sim)
+# packet 660 dropped (link-loss sim)
+# packet 661 dropped (link-loss sim)
+# packet 662 dropped (link-loss sim)
+# packet 663 dropped (link-loss sim)
+# packet 670 dropped (link-loss sim)
+# packet 678 dropped (link-loss sim)
+# packet 689 dropped (link-loss sim)
+# packet 697 dropped (link-loss sim)
+# packet 702 dropped (link-loss sim)
+# packet 705 dropped (link-loss sim)
+# packet 706 dropped (link-loss sim)
+# packet 710 dropped (link-loss sim)
+# packet 711 dropped (link-loss sim)
+# packet 712 dropped (link-loss sim)
+# packet 713 dropped (link-loss sim)
+# packet 722 dropped (link-loss sim)
+# packet 728 dropped (link-loss sim)
+# packet 739 dropped (link-loss sim)
+# packet 743 dropped (link-loss sim)
+# packet 744 dropped (link-loss sim)
+# packet 745 dropped (link-loss sim)
+# packet 746 dropped (link-loss sim)
+# packet 747 dropped (link-loss sim)
+# packet 751 dropped (link-loss sim)
+# packet 752 dropped (link-loss sim)
+# packet 753 dropped (link-loss sim)
+# packet 754 dropped (link-loss sim)
+# packet 755 dropped (link-loss sim)
+# packet 760 dropped (link-loss sim)
+# packet 765 dropped (link-loss sim)
+# packet 767 dropped (link-loss sim)
+# packet 781 dropped (link-loss sim)
+# packet 782 dropped (link-loss sim)
+# packet 783 dropped (link-loss sim)
+# packet 784 dropped (link-loss sim)
+# packet 785 dropped (link-loss sim)
+# packet 789 dropped (link-loss sim)
+# packet 792 dropped (link-loss sim)
+# packet 801 dropped (link-loss sim)
+# packet 802 dropped (link-loss sim)
+# packet 808 dropped (link-loss sim)

@@ -1,4 +1,5 @@
 const express = require('express');
+const fs = require('fs');
 const path = require('path');
 const app = express();
 const server = require('http').createServer(app);
@@ -8,12 +9,41 @@ const io = require('socket.io')(server, {
 const { SerialPort } = require('serialport');
 const { ReadlineParser } = require('@serialport/parser-readline');
 
+const logsDirectory = path.join(process.cwd(), 'logs');
+if (!fs.existsSync(logsDirectory)) {
+  fs.mkdirSync(logsDirectory, { recursive: true });
+}
+
+const flightLogFilename = path.join(logsDirectory, `flight_log_${Date.now()}.csv`);
+const flightLogStream = fs.createWriteStream(flightLogFilename, { flags: 'a' });
+flightLogStream.write('team_id,timestamp,packet_count,altitude,pressure,temperature,voltage,gnss_time,latitude,longitude,gnss_altitude,acceleration,gyroscope,magnetometer,flight_state\n');
+flightLogStream.on('error', (error) => {
+  console.error('Telemetry log stream error:', error.message);
+});
+
 const frontendDir = path.join(__dirname, '..', 'frontend');
 
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(204);
+  }
+  next();
+});
 
 app.use(express.static(frontendDir));
 app.use('/node_modules', express.static(path.join(frontendDir, 'node_modules')));
 app.use('/Backend', express.static(__dirname));
+
+app.get('/api/download-log', (req, res) => {
+  res.download(flightLogFilename, (error) => {
+    if (error && !res.headersSent) {
+      res.status(500).send('Unable to download the flight log.');
+    }
+  });
+});
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(frontendDir, 'index.html'));
@@ -21,12 +51,13 @@ app.get('/', (req, res) => {
 
 server.listen(3000, () => {
   console.log('CanSat Ground Station Server Started on port 3000...');
+  console.log(`Writing telemetry to ${flightLogFilename}`);
   console.log('Waiting for telemetry data...');
 });
 
-const defaultSerialPath = process.platform === 'win32' ? 'COM12' : '/dev/ttyUSB0';
+const defaultSerialPath = process.platform === 'win32' ? 'COM8' : '/dev/ttyUSB0';
 const serialPath = process.env.SERIAL_PORT || defaultSerialPath;
-const serialBaudRate = Number(process.env.BAUD_RATE || 115200);
+const serialBaudRate = 115200;
 
 let port = null;
 let parser = null;
@@ -88,7 +119,7 @@ function startSimulator() {
     
     const packet = {
       team_id: "2024ASI-052",
-      timestamp: Date.now(),
+      timestamp: packetCount,
       temperature: pick(temperatureValues).toFixed(2),
       pressure: pick(pressureValues).toFixed(2),
       altitude: pick(altitudeValues).toFixed(2),
@@ -122,14 +153,25 @@ function startSimulator() {
 }
 
 function handleSerialData(data) {
+  const line = data.toString();
+  if (line.includes('team_id')) {
+    return;
+  }
+
+  if (line.startsWith('#')) {
+    flightLogStream.write(line + ',,,,,,,,,,,,,,\n');
+    return;
+  }
+
+  if (line.split(',').length < 15) {
+    return;
+  }
+
   try {
-    const rawData = data.trim();
+    const rawData = line.trim();
     console.log('Raw data received:', rawData);
 
-    
-    if (!rawData || rawData.startsWith(',')) {
-      return;
-    }
+    flightLogStream.write(line + '\n');
     
     // Support multiple known CSV orders. Primary (piFieldsA) is the expected
     // order; fallback (piFieldsB) covers older simulator format (temperature-first).
@@ -202,8 +244,6 @@ function handleSerialData(data) {
       const looksValidB = tryB.temperature !== undefined || tryB.altitude !== undefined;
       if (looksValidB) telemetryData = tryB;
     }
-      telemetryData.timestamp = Date.now();
-
       if (!telemetryData.humidity) {
         telemetryData.humidity = (34.0 + Math.random() * 0.2 - 0.1).toFixed(1); // 33.9-34.1
       }
@@ -303,7 +343,7 @@ function startSerialBridge() {
         return;
       }
 
-      parser = port.pipe(new ReadlineParser({ delimiter: '\n' }));
+      parser = port.pipe(new ReadlineParser({ delimiter: '\r\n' }));
 
       parser.on('error', (parseErr) => {
         console.error('Serial parser error:', parseErr.message);
@@ -327,28 +367,61 @@ io.on('connection', (socket) => {
     baudRate: port?.baudRate || serialBaudRate
   });
 
-  socket.on('uplink_command', async (payload) => {
-    console.log(`Received from React: ${payload.text_string}`);
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 3000);
+  let uplinkTimeout = null;
+  let uplinkAckListener = null;
 
-    try {
-      const response = await fetch('https://webhook.site/62729c47-c147-4fb9-b452-549ab0bbf72f', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text_string: payload.text_string }),
-        signal: controller.signal,
-      });
-      if (!response.ok) {
-        throw new Error(`Webhook returned HTTP ${response.status}`);
-      }
-      socket.emit('uplink_status', { success: true });
-    } catch (error) {
-      console.error('Webhook POST failed:', error.message);
+  socket.on('uplink_command', (payload) => {
+    const textString = payload?.text_string;
+    console.log(`Received from React: ${textString}`);
+
+    if (typeof textString !== 'string' || !port || !port.isOpen || !parser) {
+      console.error('Cannot send uplink: serial port is not ready or payload is invalid.');
       socket.emit('uplink_status', { success: false });
-    } finally {
-      clearTimeout(timeout);
+      return;
     }
+
+    if (uplinkTimeout) {
+      clearTimeout(uplinkTimeout);
+      uplinkTimeout = null;
+    }
+    if (uplinkAckListener) {
+      parser.removeListener('data', uplinkAckListener);
+      uplinkAckListener = null;
+    }
+
+    let completed = false;
+    const finishUplink = (success) => {
+      if (completed) return;
+      completed = true;
+      if (uplinkTimeout) {
+        clearTimeout(uplinkTimeout);
+        uplinkTimeout = null;
+      }
+      if (uplinkAckListener) {
+        parser.removeListener('data', uplinkAckListener);
+        uplinkAckListener = null;
+      }
+      socket.emit('uplink_status', { success });
+    };
+
+    const listenForAck = (data) => {
+      if (data.toString().includes('ACK')) {
+        finishUplink(true);
+      } else {
+        parser.once('data', listenForAck);
+      }
+    };
+    uplinkAckListener = listenForAck;
+
+    port.write(textString, (err) => {
+      if (err) {
+        console.error('Error sending uplink over serial:', err.message);
+        finishUplink(false);
+      }
+    });
+
+    uplinkTimeout = setTimeout(() => finishUplink(false), 3000);
+    parser.once('data', listenForAck);
   });
 
   socket.on('send_command', (commandData) => {

@@ -8,7 +8,7 @@ import {
   PointElement,
   Tooltip,
 } from 'chart.js'
-import { BatteryCharging, Gauge, MapPin, Radio, Zap } from 'lucide-react'
+import { BatteryCharging, Download, Gauge, MapPin, Radio, Zap } from 'lucide-react'
 import { Line } from 'react-chartjs-2'
 import GPSMap from '../components/GPSMap'
 import RealtimeChart from '../components/RealtimeChart'
@@ -28,7 +28,7 @@ ChartJS.register(
 )
 
 const formatNumber = (value, digits = 2) => Number(value ?? 0).toFixed(digits)
-const imuColors = ['#f472b6', '#38bdf8', '#34d399']
+const imuColors = ['#ff9a4b', '#ffd08a', '#52d29a']
 
 const colorToRgba = (color, alpha) => {
   const [red, green, blue] = color
@@ -114,10 +114,10 @@ function ImuChart({ title, fields }) {
                 enabled: true,
                 mode: 'index',
                 intersect: false,
-                backgroundColor: '#101820',
-                titleColor: '#e6edf3',
-                bodyColor: '#c9d1d9',
-                borderColor: '#30363d',
+                backgroundColor: '#24170e',
+                titleColor: '#f6eee7',
+                bodyColor: '#d8c6b6',
+                borderColor: '#654127',
                 borderWidth: 1,
                 padding: 10,
               },
@@ -142,6 +142,31 @@ function ImuChart({ title, fields }) {
 function Dashboard() {
   const telemetry = useTelemetry()
 
+  const handleDownloadLog = async () => {
+    let objectUrl
+    let anchor
+
+    try {
+      const response = await fetch('http://localhost:3000/api/download-log')
+      if (!response.ok) {
+        throw new Error(`Download request failed with status ${response.status}`)
+      }
+
+      const blob = await response.blob()
+      objectUrl = URL.createObjectURL(blob)
+      anchor = document.createElement('a')
+      anchor.href = objectUrl
+      anchor.download = 'mission_log.csv'
+      anchor.style.display = 'none'
+      document.body.appendChild(anchor)
+      anchor.click()
+    } catch {
+      alert('Unable to download the flight log. Please try again.')
+    } finally {
+      anchor?.remove()
+      if (objectUrl) URL.revokeObjectURL(objectUrl)
+    }
+  }
 
 
   const { telemetry: values, gyroscope } = telemetry
@@ -149,6 +174,14 @@ function Dashboard() {
   return (
     <section className="dashboard-page reference-dashboard">
       <UplinkControl />
+      <button
+        className="flex items-center gap-2 rounded-lg bg-cyan-700 px-4 py-2 font-medium text-white transition hover:bg-cyan-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
+        onClick={handleDownloadLog}
+        type="button"
+      >
+        <Download aria-hidden="true" size={16} />
+        Download Flight Log
+      </button>
       <div className="dashboard-main-grid">
         <section className="dashboard-panel dashboard-sensor-panel">
           <div className="dashboard-chart-card">
@@ -162,7 +195,7 @@ function Dashboard() {
                   x: { ticks: { maxTicksLimit: 5, maxRotation: 25, minRotation: 25 } },
                 },
               }}
-              color="#38bdf8"
+              color="#ffad67"
               label="Pressure"
               metric="pressure"
               unit="hPa"
@@ -179,7 +212,7 @@ function Dashboard() {
                   x: { ticks: { maxTicksLimit: 5, maxRotation: 25, minRotation: 25 } },
                 },
               }}
-              color="#f472b6"
+              color="#ffd08a"
               label="Temperature"
               metric="temperature"
               unit="°C"
@@ -219,7 +252,7 @@ function Dashboard() {
                   y: { beginAtZero: false, grace: '10%' },
                 },
               }}
-              color="#22d3ee"
+              color="#ff8a32"
               height="100%"
               label="Altitude"
               metric="altitude"

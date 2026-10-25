@@ -12,7 +12,7 @@ import { io } from 'socket.io-client'
 const TelemetryContext = createContext(null)
 
 const initialTelemetryState = {
-  teamName: 'TEAM INVINCIBLE',
+  teamName: 'SAIRAM STRATOS',
   teamId: '2024ASI-052',
   rssi: -50,
   motionState: 'TUMBLING',
@@ -39,6 +39,7 @@ const initialTelemetryState = {
   gps: { latitude: 0, longitude: 0, satellites: 0 },
   accelerometer: { x: 0, y: 0, z: 0 },
   magnetometer: { x: 0, y: 0, z: 0 },
+  missionTimestamp: null,
   missionTime: '00:00:00',
   history: [],
   communication: {
@@ -104,6 +105,7 @@ const updateTelemetryState = (previous, data) => {
     port: data.port ?? data.serial_port ?? previous.port,
     baudRate: toNumber(data.baudRate ?? data.baud_rate, previous.baudRate),
     packetCount,
+    missionTimestamp: toNumber(data.timestamp, previous.missionTimestamp ?? 0),
     telemetry: { altitude, pressure, temperature, voltage },
     gyroscope: {
       pitch: toNumber(firstDefined(data.pitch, data.gyro_y), previous.gyroscope.pitch),
@@ -169,6 +171,7 @@ export function TelemetryProvider({ children }) {
   const [state, setState] = useState(initialTelemetryState)
   const [uplinkStatus, setUplinkStatus] = useState('idle')
   const socketRef = useRef(null)
+  const lastPacketTime = useRef(0)
 
   const sendUplinkCommand = useCallback((commandString) => {
     const socket = socketRef.current
@@ -194,7 +197,14 @@ export function TelemetryProvider({ children }) {
     }
     const handleTelemetryUpdate = (data) => {
       if (data && typeof data === 'object') {
-        setState((previous) => updateTelemetryState(previous, data))
+        lastPacketTime.current = Date.now()
+        setState((previous) => {
+          const next = updateTelemetryState(previous, data)
+          return {
+            ...next,
+            communication: { ...next.communication, connected: true },
+          }
+        })
       }
     }
     socket.on('uplink_status', handleUplinkStatus)
@@ -239,6 +249,22 @@ export function TelemetryProvider({ children }) {
       socketRef.current = null
       socket.disconnect()
     }
+  }, [])
+
+  useEffect(() => {
+    const watchdog = window.setInterval(() => {
+      if (Date.now() - lastPacketTime.current > 3000) {
+        setState((previous) => {
+          if (!previous.communication.connected) return previous
+          return {
+            ...previous,
+            communication: { ...previous.communication, connected: false },
+          }
+        })
+      }
+    }, 1000)
+
+    return () => window.clearInterval(watchdog)
   }, [])
 
   const contextValue = useMemo(
